@@ -44,7 +44,7 @@ export default function Visualization(props) {
         <ExpandableDiv $isExpanded={isExpanded}>
           <Vitessce
             height={isExpanded ? null : vitessceHeight}
-            config={{...vitData}}
+            config={vitData}
             theme="light"
           />
         </ExpandableDiv>
