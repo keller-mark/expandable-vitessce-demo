@@ -3,8 +3,6 @@ import styled from 'styled-components';
 import { Vitessce } from 'vitessce';
 import 'vitessce/dist/es/production/static/css/index.css';
 
-const vitessceHeight = 500;
-
 const ExpandableDiv = styled("div")`
     top: ${(props) => (props.$isExpanded ? '0' : 'auto')};
     position: ${(props) => (props.$isExpanded ? 'fixed' : 'relative')};
@@ -13,9 +11,8 @@ const ExpandableDiv = styled("div")`
 
     .vitessce-container {
         display: block;
-        height: ${(props) => (props.$isExpanded ? '100vh' : `${vitessceHeight}px`)};
+        height: ${(props) => (props.$isExpanded ? '100vh' : 'auto')};
         width: 100%;
-        overflow: hidden;
     }
 `
 
@@ -43,7 +40,7 @@ export default function Visualization(props) {
         (esc to collapse)
         <ExpandableDiv $isExpanded={isExpanded}>
           <Vitessce
-            height={isExpanded ? null : vitessceHeight}
+            height={isExpanded ? null : 500}
             config={vitData}
             theme="light"
           />
