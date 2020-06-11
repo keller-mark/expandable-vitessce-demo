@@ -4,12 +4,12 @@ import Visualization from './Visualization';
 const urlPrefix = 'https://s3.amazonaws.com/vitessce-data/0.0.27/master_release';
 const viewConfig = {
   name: 'Dries',
-  description: 'Giotto, a pipeline for integrative analysis and visualization of single-cell spatial transcriptomic data',
+  description: '',
   layers: [
     {
       name: 'cells',
       type: 'CELLS',
-      url: `${urlPrefix}/dries/dries.cell_sets.json`,
+      url: `${urlPrefix}/dries/dries.cells.json`,
     },
     {
       name: 'cell_sets',
@@ -21,7 +21,7 @@ const viewConfig = {
   staticLayout: [
     { component: 'description',
       props: {
-        description: '',
+        description: 'Giotto, a pipeline for integrative analysis and visualization of single-cell spatial transcriptomic data',
       },
       x: 9, y: 0, w: 3, h: 2 },
     { component: 'status',

@@ -21,10 +21,15 @@ export default function Visualization(props) {
 
   const [isExpanded, setIsExpanded] = useState(false);
 
+  const setIsExpandedAndResize = (d) => {
+    setIsExpanded(d);
+    setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
+  }
+
   useEffect(() => {
     function onKeydown(event) {
       if (event.key === 'Escape') {
-        setIsExpanded(false);
+        setIsExpandedAndResize(false);
       }
     }
     window.addEventListener('keydown', onKeydown);
@@ -33,10 +38,14 @@ export default function Visualization(props) {
     }
   }, []);
 
+  function onExpand() {
+    setIsExpandedAndResize(true);
+  }
+
   return (
     <div>
         Portal UI&nbsp;
-        <button onClick={() => setIsExpanded(true)}>Expand</button>
+        <button onClick={onExpand}>Expand</button>
         (esc to collapse)
         <ExpandableDiv $isExpanded={isExpanded}>
           <Vitessce
